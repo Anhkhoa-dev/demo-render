@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h1 Edit Product
+  form(action=`/product/update/${product._id}`, method='post', enctype="multipart/form-data")
+    .form-group
+      label(for='name') Name
+      input#name.form-control(type='text', name='name', value=product.name, required)
+    .form-group
+      label(for='price') Price
+      input#price.form-control(type='number', name='price', value=product.price, required)
+    .form-group
+      label(for='image') Image Now: 
+      img(src=`/images/${product.image}`, alt=product.image, width="100px")
+      //- input#phone.form-control(type='tel', name='phone', value=product.phone, required)
+    .form-group
+      label(for='image') Image New
+      input#image.form-control(type='file' placeholder='Enter image' name='image')
+    button.btn.btn-primary(type='submit') Update

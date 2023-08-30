@@ -1,0 +1,24 @@
+Phần quan trọng:
+- thư viện thực hiện việc xử lý file: multer (npm i multer)
+- cấu hình trong router products.js:
+================================================================
+...
+const multer = require('multer');
+
+...
+// thiet lap thong tin luu tru
+const storate = multer.diskStorage({
+  // thiet lap noi luu file
+  destination: (req, file, cb) => {
+      cb(null, './public/images')
+  },
+  // xu ly ten file
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+},
+});
+
+var upload = multer({storage: storate});
+================================================================
+
+- thiet lap de tai file hình anh trong phần create

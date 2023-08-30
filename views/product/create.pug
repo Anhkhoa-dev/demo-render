@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Create New Product
+  form(action="/product/create", method="post", enctype="multipart/form-data")
+    .mb-3.mt-3
+      label(for='name') Name:
+      input#email.form-control(type='text' placeholder='Enter name' name='name')
+    .mb-3.mt-3
+      label(for='price') Price:
+      input#email.form-control(type='number' placeholder='Enter price' name='price')
+    .mb-3.mt-3
+      label(for='image') Image:
+      input#email.form-control(type='file' placeholder='Enter image' name='image')
+    input.btn.btn-success(type='submit' value='Create New Product') 
